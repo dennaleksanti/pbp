@@ -37,7 +37,7 @@ class RegisterController extends Controller
 
         if($validation->fails()) {
             return response()
-            ->json($validation->errors(), 422);
+            // ->json($validation->errors(), 422);
         }
 
         $user_data = $request->all();
@@ -102,4 +102,32 @@ class RegisterController extends Controller
 
         return response()->json();
     }
+
+   /* public function login(Request $request){
+
+        $validation = Validator::make($request->all(), [
+            'username' => 'required',
+            'password' => 'required',
+            
+        ]);
+
+        if($validation->fails()) {
+            return response()
+            ->json($validation->errors(), 422);
+        }
+
+        $user_data = $request->all();
+
+            public function get($id)
+            {
+                $Register = Register::find($id);
+                
+                if(is_null($Register)) {
+                    return response()
+                    ->json(['errors' => ['registers_not_found']],404);
+                }
+
+                return response()->json($Register);
+            }
+    }*/
 }
